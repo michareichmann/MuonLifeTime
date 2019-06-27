@@ -1,0 +1,50 @@
+\section{Setup}
+\subsection{scintillators}
+The schematic setup of the scintillators is shown in \ar{fig:set}. The big block of in the middle is divided into the four sectors R1-R4 of which each is connected to a \ac{PMT}. When a charged particle crosses the scintillator light is generated which is then guided to the \ac{PMT} where is converted to electrons using a photocathode. These electrons are then largely multiplied to generate an electric signal, which is proportional to the amount of light generated in the scintillator. On top and below the block there the two pad-like scintillators Z$_{\z{top}}$ and Z$_{\z{bot}}$, which are also connected to \acp{PMT}. They are used to trigger the interesting events.\par
+A typical event is also shown in \ar{fig:set}, where the muon crosses Z$_{\z{top}}$ and stops and decays into a positron the block segment R4.
+\
+\fig{.4}{setup}[Schematic setup of the scintillators.][fig:set]
+
+\subsection{Control Crate}
+The second part of the setup is the control crate schematically shown in \ar{fig:cra}. It consists of a WIENER CAMAC crate UEB 05/A with several sub-units, a SIN 415B High Voltage Power Supply and a SIN HV Distributor VD 003.
+\subsubsection*{WIENER CAMAC crate UEB 05/A}
+CAMAC stands for Computer-Aided Measurement And Control and is a standard bus and modular-crate electronics standard for data acquisition and control used in particle detectors for nuclear and particle physics and in industry. The bus allows data exchange between plug-in modules (up to 24 in a single crate) and a crate controller, which can interface to a computer.\\
+There are several modules connected to the crate:
+\begin{itemize}
+	\item LRS 621S Quad Discriminator (2)
+	\item SIN OR 101
+	\item SIN FC 101 Coincidence
+	\item SIN FC 102 Coincidence
+	\item SIN DT 102 D.Trigger
+	\item Canberra Time Analyser Model 2143
+	\item SIN S100 \SI{10}{\mega\hertz} Scaler
+\end{itemize}
+The signals from the photomultipliers are processed with the discriminators, which have a threshold of \SIrange{30}{1000}{\milli\volt}. The threshold (``THRSH'') is adjustable with a potentiometer screw (ten revolutions) and is set to the minimal value of \SI{30}{\milli\volt}. The discriminators generate a norm (NIM) pulse with an adjustable pulse width (``WIDTH''). A width of \SI{50}{\nano\second} is sufficient for all following modules.\par
+The OR unit generates a non-exclusive OR of the connected signals. That means that the unit issues a NIM pulse whenever one of the input signals is high. The width of the pulse can be adjusted with a non-terminated coaxial cable that is connected at ``CLIP''. A cable with a signal propagation time of \SI{8}{\nano\second} will lead to output signal of \SI{16}{\nano\second} width which is sufficient for the other modules.\par
+The trigger can be generated with the FC 101 coincidence unit. This module will send out a NIM pulse if all activated (``ON'') inputs are high and the ``VETO'' is low at the same time. The duration of the outgoing pulse is adjusted with a \SI{8}{\nano\second} coaxial cable at ``CLIP'' as well.\par
+The D.Trigger unit will issue a NIM pulse after an adjustable delay (``DELAY'') which has an also adjustable width (``WIDTH''). For this experiment a width around \SI{12}{\micro\second} is recommended. The unit will also issue a short NIM pulse when the \SI{12}{\micro\second} signal has ended.\par
+In order to measure the life time of the stopped muon the Time Analyser is used. This module converts the time difference between the two inputs ``START'' and ``STOP'' to a analogue signal of \SIrange{0}{1}{\volt}. The expected range of the time difference can be adjusted with a rotary switch. If the stop signal does not arrive within the set range there will be not output signal.
+
+\subsubsection*{SIN 415B High Voltage Power Supply}
+The high voltage of the power supply can be adjusted with five rotary switches and should be set to \SI{-2180}{\volt}. The sixth rotary switch controls the polarity and must be set to negative. After switching on the device it needs about \SIrange{20}{30}{\second} to warm up before the high voltage is can be set to the two outputs on the back and the front of the device. Once the warm-up is finished the ``STD BY'' light will turn on and the outputs can be made active by switching the ``HIGH VOLTAGE'' switch.
+\subsubsection*{SIN HV Distributor VD 003}
+The HV Distributor distributes the two incoming voltages from the power supply to ten outputs. The high voltage of each output can be individually adjusted in two different ranges. A digital display shows the current voltage for the selected channel, either one of the ten outputs or the two inputs. The high voltages for the individual photomultipliers are adjusted according to \ar{tab:hvp}.
+\nicetab{|c|c|c|c|}{
+	\fatwhitel{HV output}	& \fatwhite{\ac{PMT}}	& \fatwhite{Range}	& \fatwhite{HV}	\\\tline{1.3}
+	1	& R1						& 1	&	\SI{-2100}{\volt}\\
+	2	& R2						& 1	&	\SI{-2100}{\volt}\\
+	3	& R3						& 1	&	\SI{-2100}{\volt}\\
+	4	& R4						& 1	&	\SI{-2100}{\volt}\\
+	5	& Z$_{\z{top}}$	& 2	&	\SI{-1750}{\volt}\\
+	6	& Z$_{\z{bot}}$	& 2	&	\SI{-1750}{\volt}\\\tline{.4}
+}[High voltages of the individual photomultipliers.][tab:hvp]
+The scintillators Z$_{\z{top}}$ and Z$_{\z{bot}}$ use different types of photomultipliers than the R1-R4. The high voltages of Z$_{\z{top}}$ and Z$_{\z{bot}}$ are adjusted so that the noise pulses are smaller than \SI{25}{\milli\volt} and therefore smaller than the discriminator threshold of \SI{30}{\milli\volt}. The voltages of R1-R4 are set to the optimal working point of the \acp{PMT}. Their noise pulses are only \SIrange{10}{15}{\milli\volt}. Due to that the spectra are almost free of background. 
+
+
+\fig{1}{crate}[Schematic view of the control block.][fig:cra]
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+\makeatletter
+
+\newcommand*{\version}[1]{\gdef\@version{#1}}
+\newcommand*{\@version}{0.0.0}
+\newcommand*{\manualnr}[1]{\gdef\@manualnr{#1}}
+\newcommand*{\@manualnr}{1}
+\newcommand*{\experiment}[1]{\gdef\@experiment{#1}}
+
+\renewcommand*{\maketitle}{
+\begin{titlepage}
+
+	\begin{figure}
+		\begin{minipage}{0.45\linewidth}\flushleft
+			\includegraphics[height=.16\textheight]{Logo_Physics_Lab_pos}
+			\vspace*{2ex}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\linewidth}\flushright\vspace*{6ex}
+			\includegraphics[height=.026\textheight]{LogoDPHYS}\\[3ex]
+			Version \@version\\
+			Manual Number: \@manualnr\\[0.3cm]
+		\end{minipage}
+		\hrule height 1pt
+	\end{figure}\vspace*{.5cm}
+	
+	\centering
+	{\Large\scshape Instruction Manual\strut\par}\vspace*{.5cm}
+	{\Huge\bfseries Advanced Physics Lab\unskip\strut\par}\vspace*{.3cm}
+	{\Huge\bfseries\@experiment\unskip\strut\par}\vspace*{1.5cm}
+	{\huge\itshape\@title\strut\par}\vspace*{1.5cm}
+	{\large\@author\unskip\strut\par}\vspace*{.5cm}
+	\input{abstract}
+	\vfill
+	
+	\flushleft
+	ETH Z\"urich, Switzerland, \@date
+
+\end{titlepage}}
+
+
+
+
+

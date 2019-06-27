@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+
+\input{exrapackages}
+\input{settings}
+\input{newcommands}
+\input{TitlePage}
+
+\experiment{Muon Life Time}
+\title{Life Time Measurement of Cosmic Muons Stopped in a Large Block of Scintillating Material}
+\author{Diego Alejandro Sanz Becerra \& Michael Reichmann}
+% \date{}
+\manualnr{?}
+\version{1.0.0}
+
+
+\makeindex
+\begin{document}
+
+% ========== TITLE PAGE WITH ABSTRACT ===========
+\maketitle
+
+\thispagestyle{empty}
+\cleardoublepage\tableofcontents
+\setcounter{page}{0}
+
+\cleardoublepage
+\input{intro}
+\input{setup}
+\input{experiment}
+
+\newpage
+\pagenumbering{Roman}
+\listoffigures
+\listoftables
+\input{acros}
+
+% ========== BIBLIOGRAPHY =======================
+\newpage
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
