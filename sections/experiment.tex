@@ -10,7 +10,22 @@ The whole experiment should be already set up. Follow the following instructions
  \item[6.] check if VOLTAGE on HV Distributor shows: -2100
  \item[7.] turn on the CAMAC crate \ra BETRIEB turns on
  \item[8.] turn on the computer
+ \item[9.] calibrate the Time Analyser with the D.Trigger
+ \item[10.] build a trigger logic to filter out the background
+ \item[11.] measure the spectrum
+ \item[12.] analyse the spectrum and extract the muon life time
 \end{itemize}
+
+\subsection{Time Calibration}
+The Time Analyser converts a time difference into an analogue voltage. Since the correlation of these two units is not known and may not be linear over the whole range it has to be calibrated. In order to do that the D.Trigger module may be used which can generate NIM pulses with various widths. The resulting analogue signal can then be analysed with the Desktop Digitizer. 
+
+\subsubsection*{Procedure}
+\begin{itemize}
+	\item implement a way to measure the voltage of an analogue signal with the Desktop Digitizer.
+	\item measure the voltages for at least 20 different times between \SIrange{0}{10}{\micro\second}
+	\item analyse the correlation and extract the calibration constant for the linear part
+\end{itemize}
+
 
 
 

@@ -19,11 +19,12 @@ There are several modules connected to the crate:
 	\item Canberra Time Analyser Model 2143
 	\item SIN S100 \SI{10}{\mega\hertz} Scaler
 \end{itemize}
+\fig{1}{crate}[Schematic view of the control block.][fig:cra]
 The signals from the photomultipliers are processed with the discriminators, which have a threshold of \SIrange{30}{1000}{\milli\volt}. The threshold (``THRSH'') is adjustable with a potentiometer screw (ten revolutions) and is set to the minimal value of \SI{30}{\milli\volt}. The discriminators generate a norm (NIM) pulse with an adjustable pulse width (``WIDTH''). A width of \SI{50}{\nano\second} is sufficient for all following modules.\par
 The OR unit generates a non-exclusive OR of the connected signals. That means that the unit issues a NIM pulse whenever one of the input signals is high. The width of the pulse can be adjusted with a non-terminated coaxial cable that is connected at ``CLIP''. A cable with a signal propagation time of \SI{8}{\nano\second} will lead to output signal of \SI{16}{\nano\second} width which is sufficient for the other modules.\par
 The trigger can be generated with the FC 101 coincidence unit. This module will send out a NIM pulse if all activated (``ON'') inputs are high and the ``VETO'' is low at the same time. The duration of the outgoing pulse is adjusted with a \SI{8}{\nano\second} coaxial cable at ``CLIP'' as well.\par
-The D.Trigger unit will issue a NIM pulse after an adjustable delay (``DELAY'') which has an also adjustable width (``WIDTH''). For this experiment a width around \SI{12}{\micro\second} is recommended. The unit will also issue a short NIM pulse when the \SI{12}{\micro\second} signal has ended.\par
-In order to measure the life time of the stopped muon the Time Analyser is used. This module converts the time difference between the two inputs ``START'' and ``STOP'' to a analogue signal of \SIrange{0}{1}{\volt}. The expected range of the time difference can be adjusted with a rotary switch. If the stop signal does not arrive within the set range there will be not output signal.
+The D.Trigger unit will issue a NIM pulse after an incoming signal with an adjustable delay (``DELAY'') and also adjustable width (``WIDTH''). For this experiment a width around \SI{12}{\micro\second} is recommended. The unit will also issue a short NIM pulse when the \SI{12}{\micro\second} signal has ended.\par
+In order to measure the life time of the stopped muon the Time Analyser is used. This module converts the time difference between the two inputs ``START'' and ``STOP'' to a analogue signal of \SIrange{0}{1}{\volt}. The expected range of the time difference can be adjusted with a rotary switch. If the stop signal does not arrive within the set range there will be no output signal.
 
 \subsubsection*{SIN 415B High Voltage Power Supply}
 The high voltage of the power supply can be adjusted with five rotary switches and should be set to \SI{-2180}{\volt}. The sixth rotary switch controls the polarity and must be set to negative. After switching on the device it needs about \SIrange{20}{30}{\second} to warm up before the high voltage is can be set to the two outputs on the back and the front of the device. Once the warm-up is finished the ``STD BY'' light will turn on and the outputs can be made active by switching the ``HIGH VOLTAGE'' switch.
@@ -41,7 +42,6 @@ The HV Distributor distributes the two incoming voltages from the power supply t
 The scintillators Z$_{\z{top}}$ and Z$_{\z{bot}}$ use different types of photomultipliers than the R1-R4. The high voltages of Z$_{\z{top}}$ and Z$_{\z{bot}}$ are adjusted so that the noise pulses are smaller than \SI{25}{\milli\volt} and therefore smaller than the discriminator threshold of \SI{30}{\milli\volt}. The voltages of R1-R4 are set to the optimal working point of the \acp{PMT}. Their noise pulses are only \SIrange{10}{15}{\milli\volt}. Due to that the spectra are almost free of background. 
 
 
-\fig{1}{crate}[Schematic view of the control block.][fig:cra]
 
 
 
